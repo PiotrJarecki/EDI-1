@@ -11,6 +11,9 @@
     crossorigin="anonymous">
 </head>
 <body>
+  <div class="chartMenu">
+    <p>Tomasz Mielecki, Jan Paluch</p>
+  </div>
     <h1 class="text-center">Buty</h1>
     <div class="container">
     <div class="scrollable" >
@@ -50,7 +53,74 @@
       </div>
     </div>
 
-    <script src="javascript.js"></script>
+    <hr>
+  
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="apps.js"></script>
+    <script>
+        let Opinia = [];
+        let Płeć = [];
+
+    async function drawChart() {
+        await apiData()
+
+        console.log(Opinia)
+        console.log(Płeć)
+
+            // setup 
+        const data = {
+        labels: Płeć,
+        datasets: [{
+            label: 'Opinia, podział na płci',
+            data: Opinia,
+            backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            ],
+            borderColor: [
+            'rgba(255, 26, 104, 1)',
+            ],
+            borderWidth: 1
+        }]
+        };
+
+        // config 
+        const config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        };
+
+        // render init block
+        const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+        );
+        }
+
+        drawChart()
+
+    
+    </script>
+
+
+   
+<script src="javascript.js"></script>
+
+
+
+
+ 
 
 
 </body>
