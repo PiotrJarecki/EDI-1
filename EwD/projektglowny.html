@@ -12,9 +12,9 @@
 </head>
 <body>
   <div class="chartMenu">
-    <p>Tomasz Mielecki, Jan Paluch</p>
+    <p>Tomasz Mielecki 226127, Jan Paluch 226092, Michał Pilip</p>
   </div>
-    <h1 class="text-center">Buty</h1>
+    <h1 class="text-center">Sklep z butami</h1>
     <div class="container">
     <div class="scrollable" >
     <table class="table table-bordered">
@@ -66,8 +66,8 @@
         let Opinia = [];
         let Płeć = [];
 
-    async function drawChart() {
-        await apiData()
+    async function drawChart1() {
+        await apiData1()
 
         console.log(Opinia)
         console.log(Płeć)
@@ -108,10 +108,78 @@
         );
         }
 
-        drawChart()
+        drawChart1()
 
     
     </script>
+
+    
+
+<div class="chartCard">
+  <div class="chartBox" id=>
+    <canvas id="myChart1"></canvas>
+    <script type="text/javascript" src="apps.js"></script>
+  </div>
+</div>
+<script>
+    let Sprzedane = [];
+    let Rozmiar = [];
+
+async function drawChart2() {
+    await apiData2()
+
+    console.log(Sprzedane)
+    console.log(Rozmiar)
+
+        // setup 
+    const data = {
+    labels: Rozmiar,
+    datasets: [{
+        label: 'Ilość sprzedanych sztuk o danym rozmiarze',
+        data: Sprzedane,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(131, 206, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(153, 102, 255, 0.5)',
+          'rgba(2, 159, 64, 0.5)',
+          'rgba(0, 0, 0, 0.5)',
+          'rgba(236, 159, 45, 0.5)',
+          'rgba(35, 65, 192, 0.5)',
+          'rgba(192, 14, 192, 0.5)'
+        ],
+        borderColor: [
+        'rgba(255, 26, 104, 1)',
+        ],
+        borderWidth: 1
+    }]
+    };
+
+    // config 
+    const config = {
+    type: 'doughnut',
+    data,
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    };
+
+    // render init block
+    const myChart = new Chart(
+    document.getElementById('myChart1'),
+    config
+    );
+    }
+
+    drawChart2()
+
+
+</script>
 
 
    

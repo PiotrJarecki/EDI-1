@@ -22,7 +22,7 @@
   .chartCard {
     width: 100vw;
     height: calc(100vh - 40px);
-    background: rgba(152, 188, 212, 0.2);
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,13 @@
   .chartBox {
     width: 1000px;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: solid 3px rgba(54, 162, 235, 1);
     background: white;
   }
+
+  body {
+    background-color: rgba(152, 188, 212, 0.2);
+  }
+
+  
