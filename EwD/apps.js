@@ -30,7 +30,7 @@ async function apiData2(){
         console.log(sprzedaz)
         if (sprzedaz.id < 10) {
             Sprzedane.push(sprzedaz.Ilość_sprzedanych)
-            Rozmiar.push(sprzedaz.Rozmiar_buta)
+            Model.push(sprzedaz.Model_buta)
         }
     })
 }

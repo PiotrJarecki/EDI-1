@@ -123,17 +123,17 @@
 </div>
 <script>
     let Sprzedane = [];
-    let Rozmiar = [];
+    let Model = [];
 
 async function drawChart2() {
     await apiData2()
 
     console.log(Sprzedane)
-    console.log(Rozmiar)
+    console.log(Model)
 
         // setup 
     const data = {
-    labels: Rozmiar,
+    labels: Model,
     datasets: [{
         label: 'Ilość sprzedanych sztuk o danym rozmiarze',
         data: Sprzedane,
