@@ -2,8 +2,8 @@
 
 
 //----------------------------------------------------------------------------
-async function apiData1(){
-    const apiLink = "dane1.json";
+async function apiData(file){
+    const apiLink = file;
 
     const response = await fetch(apiLink)
     const datapoints = await response.json()
@@ -20,8 +20,8 @@ async function apiData1(){
 
 // ---------------------------------------------------------------------------
 
-async function apiData2(){
-    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
+async function apiData(file){
+    const apiLink = file;
 
     const response = await fetch(apiLink)
     const datapoints = await response.json()
