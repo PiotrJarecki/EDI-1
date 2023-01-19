@@ -1,4 +1,4 @@
-function ApiData(file){
+
     fetch(file).then((data)=>{
         //console.log(data); - json format
         return data.json(); //converted to object
@@ -24,6 +24,6 @@ function ApiData(file){
     }).catch((err)=>{
         console.log(err);
     })
-}
+
 
 

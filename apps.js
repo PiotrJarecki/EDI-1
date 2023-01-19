@@ -2,7 +2,7 @@
 
 
 //----------------------------------------------------------------------------
-async function apiData(file){
+async function apiData1(file){
     const apiLink = file;
 
     const response = await fetch(apiLink)
@@ -20,7 +20,7 @@ async function apiData(file){
 
 // ---------------------------------------------------------------------------
 
-async function apiData(file){
+async function apiData2(file){
     const apiLink = file;
 
     const response = await fetch(apiLink)
