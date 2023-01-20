@@ -5,7 +5,7 @@
 async function apiData1(){
     
 
-    const response = await fetch('dane2.json')
+    const response = await fetch('dane3.json')
     const datapoints = await response.json()
     console.log(datapoints);
 

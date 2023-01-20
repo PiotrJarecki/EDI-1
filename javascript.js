@@ -1,5 +1,5 @@
 
-    fetch('dane1.json').then((data)=>{
+    fetch('dane3.json').then((data)=>{
         //console.log(data); - json format
         return data.json(); //converted to object
     }).then((objectData)=>{
