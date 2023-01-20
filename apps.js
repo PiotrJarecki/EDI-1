@@ -2,8 +2,8 @@
 
 
 //----------------------------------------------------------------------------
-async function apiData1(file){
-    const apiLink = file;
+async function apiData1(file1){
+    const apiLink = file1;
 
     const response = await fetch(apiLink)
     const datapoints = await response.json()
@@ -20,8 +20,8 @@ async function apiData1(file){
 
 // ---------------------------------------------------------------------------
 
-async function apiData2(file){
-    const apiLink = file;
+async function apiData2(){
+    const apiLink = 'dane3.json';
 
     const response = await fetch(apiLink)
     const datapoints = await response.json()
