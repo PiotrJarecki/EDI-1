@@ -4,8 +4,8 @@
 //----------------------------------------------------------------------------
 async function apiData1(){
     
-
-    const response = await fetch('dane3.json')
+    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650"
+    const response = await fetch(apiLink)
     const datapoints = await response.json()
     console.log(datapoints);
 

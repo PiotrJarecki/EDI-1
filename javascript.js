@@ -1,5 +1,5 @@
 
-    fetch('dane3.json').then((data)=>{
+    fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
         //console.log(data); - json format
         return data.json(); //converted to object
     }).then((objectData)=>{
