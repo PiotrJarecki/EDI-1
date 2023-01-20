@@ -1,5 +1,5 @@
 
-    fetch(file).then((data)=>{
+    fetch('dane1.json').then((data)=>{
         //console.log(data); - json format
         return data.json(); //converted to object
     }).then((objectData)=>{
