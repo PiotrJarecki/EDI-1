@@ -2,10 +2,10 @@
 
 
 //----------------------------------------------------------------------------
-async function apiData1(file1){
+async function apiData1(){
     
 
-    const response = await fetch(file1)
+    const response = await fetch('dane2.json')
     const datapoints = await response.json()
     console.log(datapoints);
 
