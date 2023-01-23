@@ -15,9 +15,6 @@
     <p>Tomasz Mielecki 226127, Jan Paluch 226092, Michał Pilip 227846</p>
   </div>
     <h1 class="text-center">Sklep z butami</h1>
-    <button onclick="json1()">Plik 1</button>
-    <button onclick="json2()">Plik 2</button>
-    <button onclick="json3()">Plik 3</button>
     <div class="container">
     <div class="scrollable" >
     <table class="table table-bordered">
@@ -61,37 +58,19 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+    <button onclick="updateChart1('dane1.json')">Plik 1 1</button>
+    <button onclick="updateChart1('dane2.json')">Plik 2</button>
+    <button onclick="updateChart1('dane3.json')">Plik 3</button>
       </div>
     </div>
-      <div class="chartCard">
-    <div class="chartBox" id>
-    <canvas id="myChart1"></canvas> 
-    </div>
-  </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
       
 // ---------------------------------------------F-E-T-C-H--------------------------
 
-function json1(){
-  updateChart1('dane1.json');
-  updateChart2('dane1.json');
-}
-function json2(){
-  updateChart1('dane2.json');
-  updateChart2('dane2.json');
-}
-function json3(){
-  updateChart1('dane3.json');
-  updateChart2('dane3.json');
-}
-
-
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
-  klienci.lenght = 0
-  gwiazdki.lenght = 0
   async function fetchData1() {
     const response = await fetch(val);
     const datapoints = await response.json();
@@ -122,8 +101,8 @@ function updateChart1(val){
  //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
 
-let klienci = []
-let gwiazdki = []
+  let klienci = []
+  let gwiazdki = []
   const data = {
         labels: klienci,
         datasets: [{
@@ -170,6 +149,24 @@ let gwiazdki = []
         config
       );
     
+
+
+//    async function apiData1(){
+//    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
+//
+//    const response = await fetch(apiLink)
+//  const datapoints = await response.json()
+//    console.log(datapoints);
+//
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
+//       }
+//   })
+//}
+
 //async function apiData2(){
 //    const apiLink = "dane3.json";
 //
@@ -216,37 +213,29 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
 
 // -----------------------------------------C-H-A-R-T-S------------------------
-
-function updateChart2(val){
-  Model.lenght = 0
-  Sprzedane.lenght = 0
-  async function fetchData2() {
-    const response2 = await fetch(val);
-    const datapoints2 = await response2.json();
-    console.log(datapoints2);
-    return datapoints2;
-  };
-
-  fetchData2().then(datapoints2 => {
-    const produktydata = datapoints2.map(
-      function(index2){
-        if (index2.id < 10) {
-          Sprzedane.push(index2.Ilość_sprzedanych);
-          Model.push(index2.Model_buta);
-          
-        }
-      })
-      console.log(produktydata);
-
       
-      myChart1.update();
-  });
-}
+    </script>
+
+    
+
+<div class="chartCard">
+  <div class="chartBox" id>
+    <canvas id="myChart1"></canvas>
+    
+  </div>
+</div>
+<script>
     let Sprzedane = [];
     let Model = [];
 
+async function drawChart2() {
+    await fetchData()
+
+    console.log(Sprzedane)
+    console.log(Model)
+
         // setup 
-    const data1 = {
+    const data = {
     labels: Model,
     datasets: [{
         label: 'Ilość sprzedanych sztuk o danym rozmiarze',
@@ -271,7 +260,7 @@ function updateChart2(val){
     };
 
     // config 
-    const config1 = {
+    const config = {
     type: 'doughnut',
     data,
     options: {
@@ -284,13 +273,13 @@ function updateChart2(val){
     };
 
     // render init block
-    const myChart1 = new Chart(
+    const myChart = new Chart(
     document.getElementById('myChart1'),
     config
     );
-    
+    }
 
-   
+    drawChart2()
 
 
 </script>
