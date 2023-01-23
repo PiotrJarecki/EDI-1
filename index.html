@@ -247,10 +247,10 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
     
         // setup 
     const data2 = {
-    labels: Model,
+    labels: ['mon','tue','wed','thu','fri','sat','sun'],
     datasets: [{
         label: 'Ilość sprzedanych sztuk o danym rozmiarze',
-        data: Sprzedane,
+        data: [18,12,6,9,12,3,9],
         backgroundColor: [
           'rgba(255, 26, 104, 0.5)',
           'rgba(54, 162, 235, 0.5)',
