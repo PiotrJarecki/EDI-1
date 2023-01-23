@@ -156,24 +156,6 @@ function updateChart1(val){
         config
       );
     
-
-
-//    async function apiData1(){
-//    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
-//
-//    const response = await fetch(apiLink)
-//  const datapoints = await response.json()
-//    console.log(datapoints);
-//
-//   const klientdata = datapoints.map((klient) => {
-//       console.log(klient)
-//      if (klient.id < 10) {
- //        Opinia.push(klient.Ocena)
- //        Płeć.push(klient.Płeć)
-//       }
-//   })
-//}
-
 //async function apiData2(){
 //    const apiLink = "dane3.json";
 //
@@ -189,7 +171,6 @@ function updateChart1(val){
 //        }
 //    })
 //}
-
 
 
 fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
@@ -219,7 +200,7 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
   })
 
 
-// -----------------------------------------C-H-A-R-T-S------------------------
+// -----------------------------------------C-H-A-R-T-S-2-----------------------
       
     </script>
 
@@ -227,22 +208,42 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
 <div class="chartCard">
   <div class="chartBox" id>
-    <canvas id="myChart1"></canvas>
+    <canvas id="myChart2"></canvas>
     
   </div>
 </div>
 <script>
-    let Sprzedane = [];
-    let Model = [];
 
-async function drawChart2() {
-    await fetchData()
+  function updateChart2(val2){
+  async function fetchData2() {
+    const response2 = await fetch(val2);
+    const datapoints2 = await response2.json();
+    console.log(datapoints2);
+    return datapoints2;
+  };
 
-    console.log(Sprzedane)
-    console.log(Model)
+  fetchData2().then(datapoints2 => {
+    const produktdata = datapoints2.slice(0,10).map(
+      function(index2){
+        return index2.Model_buta
+      });
 
+      const iloscdata = datapoints2.slice(0,10).map(
+      function(index2){
+        return index2.Ilość_sprzedanych
+      });
+
+      console.log(produktdata);
+      
+
+      myChart2.config.data.labels = produktdata;
+      myChart2.config.data.datasets[0].data = iloscdata;
+      myChart2.update();
+  })
+};
+    
         // setup 
-    const data = {
+    const data2 = {
     labels: Model,
     datasets: [{
         label: 'Ilość sprzedanych sztuk o danym rozmiarze',
@@ -267,7 +268,7 @@ async function drawChart2() {
     };
 
     // config 
-    const config = {
+    const config2 = {
     type: 'doughnut',
     data,
     options: {
@@ -280,13 +281,11 @@ async function drawChart2() {
     };
 
     // render init block
-    const myChart = new Chart(
-    document.getElementById('myChart1'),
-    config
+    const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
     );
-    }
-
-    drawChart2()
+    
 
 
 </script>
