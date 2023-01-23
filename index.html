@@ -218,21 +218,21 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 // -----------------------------------------C-H-A-R-T-S------------------------
 
 function updateChart2(val){
-  klienci.lenght = 0
-  gwiazdki.lenght = 0
+  Model.lenght = 0
+  Sprzedane.lenght = 0
   async function fetchData2() {
-    const response = await fetch(val);
-    const datapoints2 = await response.json();
+    const response2 = await fetch(val);
+    const datapoints2 = await response2.json();
     console.log(datapoints2);
     return datapoints2;
   };
 
   fetchData2().then(datapoints2 => {
-    const produktydata = datapoints.map(
-      function(index){
-        if (index.id < 10) {
-          Sprzedane.push(index.Ilość_sprzedanych);
-          Model.push(index.Model_buta);
+    const produktydata = datapoints2.map(
+      function(index2){
+        if (index2.id < 10) {
+          Sprzedane.push(index2.Ilość_sprzedanych);
+          Model.push(index2.Model_buta);
           
         }
       })
