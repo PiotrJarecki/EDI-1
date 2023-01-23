@@ -79,9 +79,9 @@ function updateChart1(val){
   };
 
   fetchData1().then(datapoints => {
-    const klientdata = datapoints.map(
+    const klientdata = datapoints.slice(0,10).map(
       function(index){
-        return index.Płeć.slice(0,10)
+        return index.Płeć
       });
 
       
