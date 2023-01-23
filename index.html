@@ -222,12 +222,12 @@ function updateChart2(val){
   gwiazdki.lenght = 0
   async function fetchData2() {
     const response = await fetch(val);
-    const datapoints = await response.json();
-    console.log(datapoints);
-    return datapoints;
+    const datapoints2 = await response.json();
+    console.log(datapoints2);
+    return datapoints2;
   };
 
-  fetchData2().then(datapoints => {
+  fetchData2().then(datapoints2 => {
     const produktydata = datapoints.map(
       function(index){
         if (index.id < 10) {
