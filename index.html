@@ -90,7 +90,7 @@ function updateChart1(val){
       console.log(klientdata);
 
       
-      myChart.update();
+      DrawChart1();
   });
 }
 
@@ -100,7 +100,7 @@ function updateChart1(val){
  //        Opinia.push(klient.Ocena)
  //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
-
+async function DrawChart1() {
   let klienci = []
   let gwiazdki = []
   const data = {
@@ -148,7 +148,7 @@ function updateChart1(val){
         document.getElementById('myChart'),
         config
       );
-    
+}
 
 
 //    async function apiData1(){
