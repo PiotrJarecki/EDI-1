@@ -58,9 +58,9 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-    <button onclick="fetchData1('dane1.json')">Plik 1</button>
-    <button onclick="fetchData1('dane2.json')">Plik 2</button>
-    <button onclick="fetchData1('dane3.json')">Plik 3</button>
+    <button onclick="updateChart1('dane1.json')">Plik 1</button>
+    <button onclick="updateChart1('dane2.json')">Plik 2</button>
+    <button onclick="updateChart1('dane3.json')">Plik 3</button>
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -70,20 +70,24 @@
 // ---------------------------------------------F-E-T-C-H--------------------------
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
+function updateChart1(){
+  async function fetchData1(val) {
+    const response = await fetch(val);
+    const datapoints = await response.json();
+    console.log(datapoints);
+    return datapoints;
+  };
 
-async function fetchData1(val) {
-  const response = await fetch(val);
-  const datapoints = await response.json();
-  console.log(datapoints);
-  return datapoints;
-  const klientdata = datapoints.map((klient) => {
-       console.log(klient)
-       if (klient.id < 10) {
-         Opinia.push(klient.Ocena)
-         Płeć.push(klient.Płeć)
-  }})
-       
+  fetchData1().then(datapoints => {
+    const klientdata = datapoints.map(
+      function(index){
+        return index.Płeć;
+      })
+      console.log(Płeć);
 
+      myChart.config.data.labels = Płeć;
+      myChart.update();
+  });
 }
 
 
@@ -158,42 +162,52 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
         console.log(Opinia)
         console.log(Płeć)
-
-            // setup 
         const data = {
-        labels: Płeć,
-        datasets: [{
-            label: 'Opinia, podział na płcie',
-            data: Opinia,
-            backgroundColor: [
-            'rgba(255, 26, 104, 0.2)',
-            ],
-            borderColor: [
-            'rgba(255, 26, 104, 1)',
-            ],
-            borderWidth: 1
-        }]
-        };
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [18, 12, 6, 9, 12, 3, 9],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
 
-        //  config 
-        const config = {
-        type: 'bar',
-        data,
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-        };
+      }
+    };
 
-        // render init block
-        const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-        );
-        }
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  }
 
         drawChart1()
 
