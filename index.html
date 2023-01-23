@@ -84,12 +84,12 @@ function updateChart1(val){
         if (index.id < 10) {
           klienci.push(index.Płeć);
           gwiazdki.push(index.Ocena);
-          return index.Płeć;
+          
         }
       })
       console.log(klientdata);
 
-      myChart.config.data.labels = klientdata;
+      
       myChart.update();
   });
 }
