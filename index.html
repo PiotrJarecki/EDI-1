@@ -83,18 +83,31 @@ function updateChart1(val){
       function(index){
         if (index.id < 10) {
           return index.Płeć;
+        } 
+        if (index.id >= 10) {
+          return;
+        }
+      });
+
+      const klientopinie = datapoints.map(
+        function(index){
+          if (index.id < 10) {
           return index.Ocena;
         } 
         if (index.id >= 10) {
           return;
         }
-      })
-      console.log(klientdata);
+        });
 
       
+      console.log(klientdata);
+      console.log(klientopinie);
+
+      myChart.config.data.labels = klientdata;
+      myChart.config.data.datasets.data = klientopinie;
       myChart.update();
-  });
-}
+  })
+};
 
 //   const klientdata = datapoints.map((klient) => {
 //       console.log(klient)
