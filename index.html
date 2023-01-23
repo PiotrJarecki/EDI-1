@@ -16,8 +16,8 @@
   </div>
     <h1 class="text-center">Sklep z butami</h1>
     <button onclick="fetchData1('dane1.json')">Plik 1</button>
-    <button>Plik 2</button>
-    <button>Plik 3</button>
+    <button onclick="fetchData1('dane2.json')">Plik 2</button>
+    <button onclick="fetchData1('dane3.json')">Plik 3</button>
     <div class="container">
     <div class="scrollable" >
     <table class="table table-bordered">
@@ -75,16 +75,9 @@ async function fetchData1(val) {
   const response = await fetch(val);
   const datapoints = await response.json();
   console.log(datapoints);
+  return datapoints;
 
-  const klientdata = datapoints.map((klient) => {
-    console.log(klient)
-    if (klient.id < 10) {
-      Opinia.push(klient.Ocena)
-      Płeć.push(klient.Płeć)
-    }
-})
 }
-
 
 
 //    async function apiData1(){
@@ -154,7 +147,7 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
     async function drawChart1() {
         await fetchData()
-        await chart1()
+       
 
         console.log(Opinia)
         console.log(Płeć)
