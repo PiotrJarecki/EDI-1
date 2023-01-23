@@ -71,7 +71,6 @@
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
-  DrawChart1();
   async function fetchData1() {
     const response = await fetch(val);
     const datapoints = await response.json();
@@ -90,19 +89,7 @@ function updateChart1(val){
       })
       console.log(klientdata);
 
-      
-      
-  });
-}
-
-//   const klientdata = datapoints.map((klient) => {
-//       console.log(klient)
-//      if (klient.id < 10) {
- //        Opinia.push(klient.Ocena)
- //        Płeć.push(klient.Płeć)
-// ------------------------------------------C-H-A-R-T------------------
-async function DrawChart1() {
-  let klienci = []
+      let klienci = []
   let gwiazdki = []
   const data = {
         labels: klienci,
@@ -149,7 +136,18 @@ async function DrawChart1() {
         document.getElementById('myChart'),
         config
       );
+      
+  });
 }
+
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
+// ------------------------------------------C-H-A-R-T------------------
+
+  
 
 
 //    async function apiData1(){
