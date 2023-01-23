@@ -81,7 +81,9 @@ function updateChart1(val){
   fetchData1().then(datapoints => {
     const klientdata = datapoints.map(
       function(index){
-        return index.Płeć;
+        if (index.id < 10) {
+          return index.Płeć;
+        }
       })
       console.log(klientdata);
 
@@ -89,6 +91,12 @@ function updateChart1(val){
       myChart.update();
   });
 }
+
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
 const data = {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
