@@ -15,7 +15,7 @@
     <p>Tomasz Mielecki 226127, Jan Paluch 226092, Michał Pilip 227846</p>
   </div>
     <h1 class="text-center">Sklep z butami</h1>
-    <button onclick="fetchData('dane1.json')">Plik 1</button>
+    <button onclick="fetchData1('dane1.json')">Plik 1</button>
     <button>Plik 2</button>
     <button>Plik 3</button>
     <div class="container">
@@ -71,21 +71,21 @@
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 
-async function fetchData(val) {
+async function fetchData1(val) {
   const response = await fetch(val);
   const datapoints = await response.json();
   console.log(datapoints);
-}
 
-async function chart1() {
   const klientdata = datapoints.map((klient) => {
     console.log(klient)
     if (klient.id < 10) {
       Opinia.push(klient.Ocena)
       Płeć.push(klient.Płeć)
     }
-  })
+})
 }
+
+
 
 //    async function apiData1(){
 //    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
