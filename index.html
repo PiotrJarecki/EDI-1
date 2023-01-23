@@ -15,9 +15,6 @@
     <p>Tomasz Mielecki 226127, Jan Paluch 226092, Michał Pilip 227846</p>
   </div>
     <h1 class="text-center">Sklep z butami</h1>
-    <button onclick="fetchData1('dane1.json')">Plik 1</button>
-    <button onclick="fetchData1('dane2.json')">Plik 2</button>
-    <button onclick="fetchData1('dane3.json')">Plik 3</button>
     <div class="container">
     <div class="scrollable" >
     <table class="table table-bordered">
@@ -61,6 +58,9 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+    <button onclick="fetchData1('dane1.json')">Plik 1</button>
+    <button onclick="fetchData1('dane2.json')">Plik 2</button>
+    <button onclick="fetchData1('dane3.json')">Plik 3</button>
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -76,6 +76,13 @@ async function fetchData1(val) {
   const datapoints = await response.json();
   console.log(datapoints);
   return datapoints;
+  const klientdata = datapoints.map((klient) => {
+       console.log(klient)
+       if (klient.id < 10) {
+         Opinia.push(klient.Ocena)
+         Płeć.push(klient.Płeć)
+  }})
+       
 
 }
 
@@ -87,11 +94,11 @@ async function fetchData1(val) {
 //  const datapoints = await response.json()
 //    console.log(datapoints);
 //
-//    const klientdata = datapoints.map((klient) => {
-//        console.log(klient)
-//        if (klient.id < 10) {
-//          Opinia.push(klient.Ocena)
-//         Płeć.push(klient.Płeć)
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
 //       }
 //   })
 //}
