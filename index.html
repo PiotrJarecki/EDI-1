@@ -82,9 +82,11 @@ function updateChart1(val){
     const klientdata = datapoints.map(
       function(index){
         if (index.id < 10) {
-          klienci.push(index.Płeć);
-          gwiazdki.push(index.Ocena);
-          
+          return index.Płeć;
+          return index.Ocena;
+        } 
+        if (index.id >= 10) {
+          return;
         }
       })
       console.log(klientdata);
@@ -101,13 +103,12 @@ function updateChart1(val){
  //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
 
-  let klienci = []
-  let gwiazdki = []
+  
   const data = {
-        labels: klienci,
+        labels: [],
         datasets: [{
           label: 'Opinie klientów poszczególnych płci',
-          data: gwiazdki,
+          data: [],
           backgroundColor: [
             'rgba(255, 26, 104, 0.2)',
             'rgba(54, 162, 235, 0.2)',
