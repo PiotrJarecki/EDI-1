@@ -228,7 +228,7 @@ function updateChart2(val){
   };
 
   fetchData2().then(datapoints => {
-    const klientdata = datapoints.map(
+    const produktydata = datapoints.map(
       function(index){
         if (index.id < 10) {
           Sprzedane.push(index.Ilość_sprzedanych);
@@ -236,7 +236,7 @@ function updateChart2(val){
           
         }
       })
-      console.log(klientdata);
+      console.log(produktydata);
 
       
       myChart1.update();
