@@ -56,3 +56,10 @@
       border: 1px solid #3e73bd;
   }
   
+  .vertical-center {
+    margin: 6px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
