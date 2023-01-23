@@ -71,8 +71,8 @@
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
-  let klienci = []
-  let gwiazdki = []
+  let klienci = [];
+  let gwiazdki = [];
   async function fetchData1() {
     const response = await fetch(val);
     const datapoints = await response.json();
