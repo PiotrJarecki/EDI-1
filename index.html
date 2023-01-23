@@ -58,7 +58,7 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-    <button onclick="updateChart1('dane1.json')">Plik 1</button>
+    <button onclick="updateChart1('dane1.json')">Plik 1 1</button>
     <button onclick="updateChart1('dane2.json')">Plik 2</button>
     <button onclick="updateChart1('dane3.json')">Plik 3</button>
       </div>
@@ -70,8 +70,8 @@
 // ---------------------------------------------F-E-T-C-H--------------------------
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
-function updateChart1(){
-  async function fetchData1(val) {
+function updateChart1(val){
+  async function fetchData1() {
     const response = await fetch(val);
     const datapoints = await response.json();
     console.log(datapoints);
