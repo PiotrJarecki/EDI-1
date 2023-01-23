@@ -63,6 +63,13 @@
         <canvas id="myChart"></canvas>
       </div>
     </div>
+
+    <div class="chartCard">
+      <div class="chartBox" id>
+        <canvas id="myChart2"></canvas>
+        
+      </div>
+    </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
@@ -71,17 +78,22 @@
 function f1(){
   updateChart1('dane1.json')
   updateChart2('dane1.json')
+  fetchTabela('dane1.json')
 }
 function f2(){
   updateChart1('dane2.json')
   updateChart2('dane2.json')
+  fetchTabela('dane2.json')
 }
 function f3(){
   updateChart1('dane3.json')
   updateChart2('dane3.json')
+  fetchTabela('dane3.json')
 }
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
+
+// ------------------------------------------C-H-A-R-T-----1-1-1-1-1-1---------
 function updateChart1(val){
   async function fetchData1() {
     const response = await fetch(val);
@@ -110,9 +122,6 @@ function updateChart1(val){
   })
 };
 
-// ------------------------------------------C-H-A-R-T------------------
-
-  
   const data = {
         labels: ['mon','tue','wed','thu','fri','sat','sun'],
         datasets: [{
@@ -159,65 +168,9 @@ function updateChart1(val){
         config
       );
     
-//async function apiData2(){
-//    const apiLink = "dane3.json";
-//
-//    const response = await fetch(apiLink)
-//    const datapoints = await response.json()
-//    console.log(datapoints);
-//
-//    const sprzedazdata = datapoints.map((sprzedaz) => {
-//        console.log(sprzedaz)
-//        if (sprzedaz.id < 10) {
-//            Sprzedane.push(sprzedaz.Ilość_sprzedanych)
-//            Model.push(sprzedaz.Model_buta)
-//        }
-//    })
-//}
+// ------------------------------------------C-H-A-R-T-----2-2-2-2-2---------
 
-
-fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
-    //console.log(data); - json format
-    return data.json(); //converted to object
-}).then((objectData)=>{
-    console.log(objectData[0].Model_buta);
-    let tableData="";
-    objectData.map((values)=>{
-        tableData+=`<tr>
-        <td>${values.id}</td>
-        <td>${values.Model_buta}</td>
-        <td>${values.Nazwa_producenta}</td>
-        <td>${values.Rozmiar_buta}</td>
-        <td>${values.Płeć}</td>
-        <td>${values.Ocena}</td>
-        <td>${values.Cena}</td>
-        <td>${values.Limitowana_edycja}</td>
-        <td>${values.Ilość_w_magazynie}</td>
-        <td>${values.Ilość_sprzedanych}</td>
-        <td>${values.Data_dodania}</td>
-      </tr>`;
-    });
-    document.getElementById("table_body").innerHTML=tableData;
-}).catch((err)=>{
-    console.log(err);
-  })
-
-
-// -----------------------------------------C-H-A-R-T-S-2-----------------------
-      
-    </script>
-
-    
-
-<div class="chartCard">
-  <div class="chartBox" id>
-    <canvas id="myChart2"></canvas>
-    
-  </div>
-</div>
-<script>
-
-  function updateChart2(val2){
+function updateChart2(val2){
   async function fetchData2() {
     const response2 = await fetch(val2);
     const datapoints2 = await response2.json();
@@ -288,6 +241,44 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
     document.getElementById('myChart2'),
     config2
     );
+
+//-------------------------------T-A-B-E-L-A-----------------
+
+function fetchTabela(val3) {
+ fetch(val3).then((data)=>{
+    //console.log(data); - json format
+    return data.json(); //converted to object
+}).then((objectData)=>{
+    console.log(objectData[0].Model_buta);
+
+//--------
+    let tableData="";
+    objectData.map((values)=>{
+        tableData+=`<tr>
+        <td>${values.id}</td>
+        <td>${values.Model_buta}</td>
+        <td>${values.Nazwa_producenta}</td>
+        <td>${values.Rozmiar_buta}</td>
+        <td>${values.Płeć}</td>
+        <td>${values.Ocena}</td>
+        <td>${values.Cena}</td>
+        <td>${values.Limitowana_edycja}</td>
+        <td>${values.Ilość_w_magazynie}</td>
+        <td>${values.Ilość_sprzedanych}</td>
+        <td>${values.Data_dodania}</td>
+      </tr>`;
+    });
+    document.getElementById("table_body").innerHTML=tableData;
+}).catch((err)=>{
+    console.log(err);
+  })
+}
+
+// -----------------------------------------C-H-A-R-T-S-2-----------------------
+      
+    
+
+  
     
 
 
