@@ -77,6 +77,16 @@ async function fetchData(val) {
   console.log(datapoints);
 }
 
+async function chart1() {
+  const klientdata = datapoints.map((klient) => {
+    console.log(klient)
+    if (klient.id < 10) {
+      Opinia.push(klient.Ocena)
+      Płeć.push(klient.Płeć)
+    }
+  })
+}
+
 //    async function apiData1(){
 //    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
 //
@@ -144,6 +154,7 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
     async function drawChart1() {
         await fetchData()
+        await chart1()
 
         console.log(Opinia)
         console.log(Płeć)
@@ -202,7 +213,7 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
     let Model = [];
 
 async function drawChart2() {
-    await apiData2()
+    await fetchData()
 
     console.log(Sprzedane)
     console.log(Model)
