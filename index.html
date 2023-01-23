@@ -15,6 +15,9 @@
     <p>Tomasz Mielecki 226127, Jan Paluch 226092, Michał Pilip 227846</p>
   </div>
     <h1 class="text-center">Sklep z butami</h1>
+    <button onclick="json1()">Plik 1</button>
+    <button onclick="json2()">Plik 2</button>
+    <button onclick="json3()">Plik 3</button>
     <div class="container">
     <div class="scrollable" >
     <table class="table table-bordered">
@@ -58,16 +61,32 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-    <button onclick="updateChart1('dane1.json')">Plik 1 1</button>
-    <button onclick="updateChart1('dane2.json')">Plik 2</button>
-    <button onclick="updateChart1('dane3.json')">Plik 3</button>
       </div>
     </div>
+      <div class="chartCard">
+    <div class="chartBox" id>
+    <canvas id="myChart1"></canvas> 
+    </div>
+  </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
       
 // ---------------------------------------------F-E-T-C-H--------------------------
+
+function json1(){
+  updateChart1('dane1.json');
+  updateChart2('dane1.json');
+}
+function json2(){
+  updateChart1('dane2.json');
+  updateChart2('dane2.json');
+}
+function json3(){
+  updateChart1('dane3.json');
+  updateChart2('dane3.json');
+}
+
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
@@ -197,29 +216,37 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
 
 
 // -----------------------------------------C-H-A-R-T-S------------------------
+
+function updateChart2(val){
+  klienci.lenght = 0
+  gwiazdki.lenght = 0
+  async function fetchData2() {
+    const response = await fetch(val);
+    const datapoints = await response.json();
+    console.log(datapoints);
+    return datapoints;
+  };
+
+  fetchData2().then(datapoints => {
+    const klientdata = datapoints.map(
+      function(index){
+        if (index.id < 10) {
+          Sprzedane.push(index.Ilość_sprzedanych);
+          Model.push(index.Model_buta);
+          
+        }
+      })
+      console.log(klientdata);
+
       
-    </script>
-
-    
-
-<div class="chartCard">
-  <div class="chartBox" id>
-    <canvas id="myChart1"></canvas>
-    
-  </div>
-</div>
-<script>
+      myChart1.update();
+  });
+}
     let Sprzedane = [];
     let Model = [];
 
-async function drawChart2() {
-    await fetchData()
-
-    console.log(Sprzedane)
-    console.log(Model)
-
         // setup 
-    const data = {
+    const data1 = {
     labels: Model,
     datasets: [{
         label: 'Ilość sprzedanych sztuk o danym rozmiarze',
@@ -244,7 +271,7 @@ async function drawChart2() {
     };
 
     // config 
-    const config = {
+    const config1 = {
     type: 'doughnut',
     data,
     options: {
@@ -257,13 +284,13 @@ async function drawChart2() {
     };
 
     // render init block
-    const myChart = new Chart(
+    const myChart1 = new Chart(
     document.getElementById('myChart1'),
     config
     );
-    }
+    
 
-    drawChart2()
+   
 
 
 </script>
