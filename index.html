@@ -82,6 +82,8 @@ function updateChart1(val){
     const klientdata = datapoints.map(
       function(index){
         if (index.id < 10) {
+          let klienci = []
+          let gwiazdki = []
           klienci.push(index.Płeć);
           gwiazdki.push(index.Ocena);
           
@@ -89,8 +91,19 @@ function updateChart1(val){
       })
       console.log(klientdata);
 
-      let klienci = []
-  let gwiazdki = []
+      
+      myChart.update();
+  });
+}
+
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
+// ------------------------------------------C-H-A-R-T------------------
+
+  
   const data = {
         labels: klienci,
         datasets: [{
@@ -136,36 +149,7 @@ function updateChart1(val){
         document.getElementById('myChart'),
         config
       );
-      
-  });
-}
-
-//   const klientdata = datapoints.map((klient) => {
-//       console.log(klient)
-//      if (klient.id < 10) {
- //        Opinia.push(klient.Ocena)
- //        Płeć.push(klient.Płeć)
-// ------------------------------------------C-H-A-R-T------------------
-
-  
-
-
-//    async function apiData1(){
-//    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
-//
-//    const response = await fetch(apiLink)
-//  const datapoints = await response.json()
-//    console.log(datapoints);
-//
-//   const klientdata = datapoints.map((klient) => {
-//       console.log(klient)
-//      if (klient.id < 10) {
- //        Opinia.push(klient.Ocena)
- //        Płeć.push(klient.Płeć)
-//       }
-//   })
-//}
-
+    
 //async function apiData2(){
 //    const apiLink = "dane3.json";
 //
