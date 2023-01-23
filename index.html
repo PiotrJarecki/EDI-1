@@ -71,8 +71,8 @@
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
-  myChart.destroy();
-  drawChart1();
+  let klienci = []
+  let gwiazdki = []
   async function fetchData1() {
     const response = await fetch(val);
     const datapoints = await response.json();
@@ -103,9 +103,6 @@ function updateChart1(val){
  //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
 
-async function drawChart1() {
-  let klienci = []
-  let gwiazdki = []
 
   const data = {
         labels: klienci,
@@ -152,8 +149,7 @@ async function drawChart1() {
         document.getElementById('myChart'),
         config
       );
-    }
-
+    
 
 
 //    async function apiData1(){
