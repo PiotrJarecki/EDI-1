@@ -89,80 +89,8 @@ function updateChart1(){
       myChart.update();
   });
 }
-
-
-//    async function apiData1(){
-//    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
-//
-//    const response = await fetch(apiLink)
-//  const datapoints = await response.json()
-//    console.log(datapoints);
-//
-//   const klientdata = datapoints.map((klient) => {
-//       console.log(klient)
-//      if (klient.id < 10) {
- //        Opinia.push(klient.Ocena)
- //        Płeć.push(klient.Płeć)
-//       }
-//   })
-//}
-
-//async function apiData2(){
-//    const apiLink = "dane3.json";
-//
-//    const response = await fetch(apiLink)
-//    const datapoints = await response.json()
-//    console.log(datapoints);
-//
-//    const sprzedazdata = datapoints.map((sprzedaz) => {
-//        console.log(sprzedaz)
-//        if (sprzedaz.id < 10) {
-//            Sprzedane.push(sprzedaz.Ilość_sprzedanych)
-//            Model.push(sprzedaz.Model_buta)
-//        }
-//    })
-//}
-
-// ------------------------------------------T-A-B-E-L-A------------------
-
-fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
-    //console.log(data); - json format
-    return data.json(); //converted to object
-}).then((objectData)=>{
-    console.log(objectData[0].Model_buta);
-    let tableData="";
-    objectData.map((values)=>{
-        tableData+=`<tr>
-        <td>${values.id}</td>
-        <td>${values.Model_buta}</td>
-        <td>${values.Nazwa_producenta}</td>
-        <td>${values.Rozmiar_buta}</td>
-        <td>${values.Płeć}</td>
-        <td>${values.Ocena}</td>
-        <td>${values.Cena}</td>
-        <td>${values.Limitowana_edycja}</td>
-        <td>${values.Ilość_w_magazynie}</td>
-        <td>${values.Ilość_sprzedanych}</td>
-        <td>${values.Data_dodania}</td>
-      </tr>`;
-    });
-    document.getElementById("table_body").innerHTML=tableData;
-}).catch((err)=>{
-    console.log(err);
-  })
-
-
-// -----------------------------------------C-H-A-R-T-S------------------------
-        let Opinia = [];
-        let Płeć = [];
-
-    async function drawChart1() {
-        await fetchData1()
-       
-
-        console.log(Opinia)
-        console.log(Płeć)
-        const data = {
+// ------------------------------------------C-H-A-R-T------------------
+const data = {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       datasets: [{
         label: 'Weekly Sales',
@@ -207,11 +135,73 @@ fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
       document.getElementById('myChart'),
       config
     );
-  }
+  
 
-        drawChart1()
 
-    
+
+//    async function apiData1(){
+//    const apiLink = "https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650";
+//
+//    const response = await fetch(apiLink)
+//  const datapoints = await response.json()
+//    console.log(datapoints);
+//
+//   const klientdata = datapoints.map((klient) => {
+//       console.log(klient)
+//      if (klient.id < 10) {
+ //        Opinia.push(klient.Ocena)
+ //        Płeć.push(klient.Płeć)
+//       }
+//   })
+//}
+
+//async function apiData2(){
+//    const apiLink = "dane3.json";
+//
+//    const response = await fetch(apiLink)
+//    const datapoints = await response.json()
+//    console.log(datapoints);
+//
+//    const sprzedazdata = datapoints.map((sprzedaz) => {
+//        console.log(sprzedaz)
+//        if (sprzedaz.id < 10) {
+//            Sprzedane.push(sprzedaz.Ilość_sprzedanych)
+//            Model.push(sprzedaz.Model_buta)
+//        }
+//    })
+//}
+
+
+
+fetch("https://my.api.mockaroo.com/p_rojekt_.json/?key=22355650").then((data)=>{
+    //console.log(data); - json format
+    return data.json(); //converted to object
+}).then((objectData)=>{
+    console.log(objectData[0].Model_buta);
+    let tableData="";
+    objectData.map((values)=>{
+        tableData+=`<tr>
+        <td>${values.id}</td>
+        <td>${values.Model_buta}</td>
+        <td>${values.Nazwa_producenta}</td>
+        <td>${values.Rozmiar_buta}</td>
+        <td>${values.Płeć}</td>
+        <td>${values.Ocena}</td>
+        <td>${values.Cena}</td>
+        <td>${values.Limitowana_edycja}</td>
+        <td>${values.Ilość_w_magazynie}</td>
+        <td>${values.Ilość_sprzedanych}</td>
+        <td>${values.Data_dodania}</td>
+      </tr>`;
+    });
+    document.getElementById("table_body").innerHTML=tableData;
+}).catch((err)=>{
+    console.log(err);
+  })
+
+
+// -----------------------------------------C-H-A-R-T-S------------------------
+      
     </script>
 
     
