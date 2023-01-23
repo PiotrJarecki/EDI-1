@@ -84,11 +84,16 @@ function updateChart1(val){
         return index.Płeć
       });
 
-      
+      const opiniedata = datapoints.slice(0,10).map(
+      function(index){
+        return index.Ocena
+      });
+
       console.log(klientdata);
       
 
       myChart.config.data.labels = klientdata;
+      myChart.config.data.ldatasets[0].data = opiniedata;
       myChart.update();
   })
 };
