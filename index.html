@@ -82,7 +82,8 @@ function updateChart1(val){
     const klientdata = datapoints.map(
       function(index){
         if (index.id < 10) {
-          return index.Płeć;
+          klienci.push(index.Płeć);
+          gwiazdki.push(index.Ocena);
         }
       })
       console.log(klientdata);
@@ -98,11 +99,15 @@ function updateChart1(val){
  //        Opinia.push(klient.Ocena)
  //        Płeć.push(klient.Płeć)
 // ------------------------------------------C-H-A-R-T------------------
+
+let klienci = []
+let gwiazdki = []
+
 const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      labels: klienci,
       datasets: [{
         label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
+        data: gwiazdki,
         backgroundColor: [
           'rgba(255, 26, 104, 0.2)',
           'rgba(54, 162, 235, 0.2)',
