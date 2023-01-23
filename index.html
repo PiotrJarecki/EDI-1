@@ -71,6 +71,7 @@
 
 // f1; dane1.json f2; dane2.json f3; dane3.json
 function updateChart1(val){
+  myChart.destroy();
   drawChart1();
   async function fetchData1() {
     const response = await fetch(val);
