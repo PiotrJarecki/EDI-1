@@ -48,6 +48,17 @@
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
+
+      
+      
+      
+      
+      border-radius: 12px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      cursor: pointer;
+      margin: auto;
+      border: 2px solid #000000; 
+      margin: 0 auto;
     }
 
     button:hover{
@@ -56,11 +67,7 @@
       border: 1px solid #3e73bd;
   }
 
- .button-container-div {
-    text-align: center;
-    height: fit-content;
-    width: 100%;
-  }
+ 
 
   
   
