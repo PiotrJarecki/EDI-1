@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="chartMenu">
-    <p>Tomasz Mielecki 226127, Jan Paluch 226092</p>
+    <p>Tomasz Mielecki 226127,   Jan Paluch 226092</p>
   </div>
     <h1 class="text-center">Sklep z butami</h1>
     <button class="przycisk" onclick="f1()">Plik 1</button>
@@ -193,9 +193,9 @@ function updateChart2(val2){
       console.log(produktdata);
       
 
-      myChart2.config2.data.labels = produktdata;
-      myChart2.config2.data.datasets[0].data = iloscdata;
-      myChart2.config2.data.datasets[0].label = "Sprzedane sztuki";
+      myChart2.config.data2.labels = produktdata;
+      myChart2.config.data2.datasets[0].data = iloscdata;
+      myChart2.config.data2.datasets[0].label = "Sprzedane sztuki";
       myChart2.update();
   })
 };
@@ -228,7 +228,7 @@ function updateChart2(val2){
     // config 
     const config2 = {
     type: 'doughnut',
-    data,
+    data2,
     options: {
         scales: {
         y: {
