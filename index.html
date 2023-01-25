@@ -118,7 +118,7 @@ function updateChart1(val){
       
       myChart.config.data.labels = klientdata;
       myChart.config.data.datasets[0].data = opiniedata;
-      myChart.config.data.datasets[0].label1 = "Liczba gwiazdek";
+      myChart.config.data.datasets[0].label = "Liczba gwiazdek";
       myChart.update();
   })
 };
@@ -126,7 +126,7 @@ function updateChart1(val){
   const data = {
         labels: ['male','female','male','female','male','female','male','female','male','female'],
         datasets: [{
-          label1: 'Liczba gwiazdek',
+          label: 'Liczba gwiazdek',
           data: [0,0,0,0,0,0,0,0,0,0],
           backgroundColor: [
             'rgba(255, 26, 104, 0.2)',
@@ -193,9 +193,9 @@ function updateChart2(val2){
       console.log(produktdata);
       
 
-      myChart2.config.data.labels = produktdata;
-      myChart2.config.data.datasets[0].data = iloscdata;
-      myChart2.config.data.datasets[0].label = "Sprzedane sztuki";
+      myChart2.config2.data.labels = produktdata;
+      myChart2.config2.data.datasets[0].data = iloscdata;
+      myChart2.config2.data.datasets[0].label = "Sprzedane sztuki";
       myChart2.update();
   })
 };
