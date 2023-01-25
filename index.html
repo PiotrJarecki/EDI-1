@@ -193,9 +193,9 @@ function updateChart2(val2){
       console.log(produktdata);
       
 
-      myChart2.config.data2.labels = produktdata;
-      myChart2.config.data2.datasets[0].data = iloscdata;
-      myChart2.config.data2.datasets[0].label = "Sprzedane sztuki";
+      myChart2.config.data.labels = produktdata;
+      myChart2.config.data.datasets[0].data = iloscdata;
+      myChart2.config.data.datasets[0].label = "Sprzedane sztuki";
       myChart2.update();
   })
 };
@@ -228,7 +228,7 @@ function updateChart2(val2){
     // config 
     const config2 = {
     type: 'doughnut',
-    data2,
+    data,
     options: {
         scales: {
         y: {
