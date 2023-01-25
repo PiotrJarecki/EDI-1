@@ -192,15 +192,15 @@ function updateChart2(val2){
       console.log(produktdata);
       
 
-      myChart2.config2.data2.labels = produktdata;
-      myChart2.config2.data2.datasets[0].data = iloscdata;
+      myChart2.config2.data.labels = produktdata;
+      myChart2.config2.data.datasets[0].data = iloscdata;
       myChart2.update();
   })
 };
     
         // setup 
     const data2 = {
-    labels2: ['mon','tue','wed','thu','fri','sat','sun'],
+    labels: ['mon','tue','wed','thu','fri','sat','sun'],
     datasets2: [{
         label: 'Sprzedane sztuki o danym rozmiarze',
         data: [18,12,6,9,12,3,9],
