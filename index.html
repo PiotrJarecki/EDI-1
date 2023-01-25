@@ -118,7 +118,7 @@ function updateChart1(val){
       
       myChart.config.data.labels = klientdata;
       myChart.config.data.datasets[0].data = opiniedata;
-      myChart.config.data.datasets.label = "Liczba gwiazdek";
+      myChart.config.data.datasets[0].label = "Liczba gwiazdek";
       myChart.update();
   })
 };
@@ -195,7 +195,7 @@ function updateChart2(val2){
 
       myChart2.config.data.labels = produktdata;
       myChart2.config.data.datasets[0].data = iloscdata;
-      myChart2.config.data.datasets.label = "Sprzedane sztuki";
+      myChart2.config.data.datasets[0].label = "Sprzedane sztuki";
       myChart2.update();
   })
 };
