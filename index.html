@@ -118,7 +118,7 @@ function updateChart1(val){
       
       myChart.config.data.labels = klientdata;
       myChart.config.data.datasets[0].data = opiniedata;
-      myChart.config.data.datasets[0].label = "Liczba gwiazdek";
+      myChart.config.data.datasets[0].label1 = "Liczba gwiazdek";
       myChart.update();
   })
 };
@@ -126,7 +126,7 @@ function updateChart1(val){
   const data = {
         labels: ['male','female','male','female','male','female','male','female','male','female'],
         datasets: [{
-          label: 'Liczba gwiazdek',
+          label1: 'Liczba gwiazdek',
           data: [0,0,0,0,0,0,0,0,0,0],
           backgroundColor: [
             'rgba(255, 26, 104, 0.2)',
